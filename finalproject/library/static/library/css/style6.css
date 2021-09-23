@@ -1,0 +1,32 @@
+fieldset
+{
+    background:#FFF;
+    border:1 px solid #CCC;
+    padding :20px;
+    margin-bottom : 20 px;
+    margin:20px auto
+}
+legend
+{
+    background: #FFF;
+    border : 1 px solid #CCC;
+    padding : 10 px;  
+}
+
+label 
+{
+    margin-bottom:10px;
+    display:block;
+}
+input 
+{
+    margin-bottom:10px;
+}
+
+input[type = "text"],
+input[type = "password"],
+textarea
+
+{padding : 8px; width:300px; display:block}
+
+hr { border : 1px solid #EEE}

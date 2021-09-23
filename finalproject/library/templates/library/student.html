@@ -1,0 +1,32 @@
+{% extends 'library/layouts/studentpage.html' %}
+{% load static %}
+{% block part1 %}
+<link rel="stylesheet" href="{% static 'library/css/style5.css' %}">
+<!-- Helloo {{user.username}} -->
+<div>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Cover</th>
+                <th>Status</th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in book_items %}
+            {% csrf_token %}
+               <tr>
+                    <td>{{item.title}}</td>
+                    <td>{{item.author}} </td>
+                    <td><img src="{% static 'library/images/'|add:item.image %}" width="150px"></td>
+                    <td>{{item.status}}</td>
+                    <td><button type="button" style="width: 5rem; height: 2rem; background-color: #f6aa37; border: none;"><a href="#" style=" color:#fff ; text-decoration:none; font-size: 1rem;">Borrow</a></button></td>
+                </tr>
+             {% endfor %}
+            
+        </tbody>
+    </table>
+</div>  
+{% endblock %}

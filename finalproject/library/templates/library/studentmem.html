@@ -1,0 +1,33 @@
+{% extends 'library/layouts/admin.html'%}
+{% load static %}
+{% block part1 %}
+<link rel="stylesheet" href="{% static 'library/css/style5.css' %}">
+<div>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for mem in student_members %}
+                    {% if mem.is_student == True %}
+                    <tr>
+                        <td>{{mem.id}}</td>
+                        <td>{{mem.username}}</td>
+                        <td>{{mem.first_name}} </td>
+                        <td>{{mem.last_name}}</td>
+                        <td>{{mem.email}}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            
+        </tbody>
+    </table>
+</div>  
+{% endblock %}

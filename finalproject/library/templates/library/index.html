@@ -1,0 +1,40 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'library/css/style.css' %}">
+
+
+    <title>Multiple user login</title>
+  </head>
+  <body>
+  <div class="content">
+    <div class="container">
+      <div>
+        <div>
+          <div>
+            <div>
+              <div class="main">
+                  <div class="header">
+                      <h1>Welcome</h1>
+                  </div>
+                  <label class="label">Log in if you already have registered!</label>
+                
+                      <div><button class="button"><a href="{% url 'login_view' %}">login</a></button></div>
+                  <label class="label">If not register here!</label>
+              
+                      <div><button class="button"><a href="{% url 'register' %}">register</a></button></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

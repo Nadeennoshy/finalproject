@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'library/css/style3.css'%}">
+
+    <title>Multiple user login</title>
+  </head>
+  <body>
+  <div class="content">
+    <div class="container">
+      <div class="main">
+        <div>
+          <div>
+            <div>
+              <div>
+                  <span class="header">
+                {% if msg %}
+                    {{ msg | safe }}
+                {% else %}
+                    Register page
+                {% endif %}
+              </span>
+                <form  method="post">
+                  
+                    {% csrf_token %}
+                  <table><tr><td>
+                    <div class="username">
+                    <label for="username" class="label">Username
+                    </label>
+                      {{ form.username }}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="email">
+                    <label for="email" class="label-email">Email</label>
+                      {{ form.email}}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div >
+                    <label for="password" class="label-password">Password</label>
+                      {{ form.password1 }}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <label for="password"  class="confirm-password">confirm Password</label>
+                      {{ form.password2 }}
+                  </div>
+                </td>
+              </tr>
+            </table>       
+                  <div >
+                    <label class="admin">
+                      <span class="caption">Admin</span>
+                        {{ form.is_admin }}
+                    </label>
+                    <label><span class="caption">Student</span>
+                      {{ form.is_student }}                 
+                  </label>
+                  </div>
+                    <span class="text-error">{{ form.errors }}</span>
+                  <input type="submit"  value="Register" class="register">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

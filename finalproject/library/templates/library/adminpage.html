@@ -1,0 +1,41 @@
+{% extends 'library/layouts/admin.html'%}
+{% load static %}
+{% block part1 %}
+<link rel="stylesheet" href="{% static 'library/css/style5.css' %}">
+<div>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Cover</th>
+                <th>Status</th>
+                <th>  </th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in book_items %}
+               <tr>
+                    <td>{{item.title}}</td>
+                    <td>{{item.author}} </td>
+                    <td><img src="{% static 'library/images/'|add:item.image %}" width="150px"></td>
+                    <td>{{item.status}}</td>
+                    <td><button type="button" class="button-update" style="width: 5rem; height: 2rem; background-color: #000; border: none;"><a href="{% url 'update-book' item.id %}" style=" color:#fff ; text-decoration:none; font-size: 1rem;">Update</a></button></td>
+                    <!-- <button type="button"><a href="{% url 'delete-book' item.id %}">Delete</a></button> -->
+                    <td>
+                        <div>
+                            <form action="{% url 'delete-book' item.id %}" method="delete">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete Book" class="button-delete" style="width: 6rem; height: 2rem; background-color: rgb(117, 6, 6); border: none; color: #fff; font-size: 1rem;">
+                            </form>
+                        </div>
+                    </td>
+
+                </tr>
+             {% endfor %}
+            
+        </tbody>
+    </table>
+</div>  
+{% endblock %}

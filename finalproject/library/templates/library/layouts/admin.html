@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static '/library/css/style4.css' %}">
+        <script src="https://kit.fontawesome.com/21eda6152b.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a>
+                            <span class="icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                            <span class="title"><h2>Library</h2></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'adminpage'%}">
+                            <span class="icon"><i class="fas fa-book-open"></i></span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'addbooks'%}">
+                            <span class="icon"><i class="fas fa-book"></i></span>
+                            <span class="title">Add New Book</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/student">
+                            <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                            <span class="title">Students</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'change-password' %}">
+                            <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                            <span class="title">Password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/">
+                            <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                            <span class="title">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="topbar">
+                    <div class="toggle" onclick="toggleMenu();"></div>
+                    <div class="search">
+                        <!-- <label>
+                            <input type="text" placeholder="Search here">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </label> -->
+                    </div>
+                    </div>
+                    {% block part1%}
+                    
+
+                    {% endblock %}
+                    {% block part2 %}
+                    {% endblock %}
+                    
+                    </div> 
+                   
+            </div>
+
+        </div>
+        <script>
+            function toggleMenu(){
+                let toggle = document.querySelector('.toggle');
+                let navigation = document.querySelector('.navigation');
+                let main = document.querySelector('.main');
+                toggle.classList.toggle('active');
+                navigation.classList.toggle('active');
+                main.classList.toggle('active');
+            }
+        </script>
+    </body>
+
+</html>

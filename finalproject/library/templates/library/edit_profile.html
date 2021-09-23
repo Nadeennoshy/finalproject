@@ -1,0 +1,45 @@
+{% extends 'library/layouts/studentpage.html' %}
+{% load static %}
+{% block part1 %}
+  <link rel="stylesheet" href="{% static 'library/css/style8.css' %}">
+<div class="contain">
+    <div class="content">
+    <div class="head">
+        <h1>Edit Profile</h1>
+    </div>
+    <div class="form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if status %}
+                <div class="">{{status}}</div>
+            {% endif %}
+            <div class="form1">
+                <div class="class1">
+                    <div class="class2">
+                        <label class="label">First Name</label>
+                        <input type="text" class="input"  name="fname" placeholder="Enter First Name" value="{{user.first_name}}">
+                    </div>
+                    <div class="class3">
+                        <label class="label">Last Name</label>
+                        <input type="text" class="input"  name="lname" placeholder="Enter Last Name" value="{{user.last_name}}">
+                    </div>
+                    <div class="class4">
+                        <label class="label">Email</label>
+                        <input type="email" class="input"  name="email" placeholder="Enter Your Email" value="{{user.email}}">
+                    </div>
+                    <div class="class4">
+                        <label class="label">Username</label>
+                        <input type="text" class="input"  name="username" placeholder="Enter Your username" value="{{user.username}}">
+                    </div>
+                </div>
+            </div>
+            <div class="content-button">
+                <input type="submit" name="changeprofile" value="Save Changes" class="button" style="width: 50%; border-radius: 20px;">
+            </div>
+        </form>
+    </div>
+
+    </div>
+
+</div>
+{% endblock %}

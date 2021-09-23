@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'library/css/style2.css' %}">
+
+    <title>Multiple user login</title>
+  </head>
+  <body>
+  <div class="content">
+    <div class="container">
+      <div class="main">
+        <div>
+          <div>
+            <div>
+              <div >
+
+              <span class="login" >
+                {% if msg %}
+                    {{ msg | safe }}
+                {% else %}
+                    Login page
+                {% endif %}
+              </span>
+                <form  method="post">
+                    {% csrf_token %}
+                  <div>
+                    <label for="username" class="label">Username</label>
+                      {{ form.username }}
+                  </div>
+                  <div >
+                    <label for="username" class="label">Password</label>
+                    {{ form.password }}
+                  </div>
+
+                  <div >
+                    <div>
+                      <input type="checkbox" checked="checked" class="checkbox"/>
+                      <span class="caption">Remember me</span>
+                    </div>
+                    <div class="forgot-container"><a href="#" class="forgot-pass">Forgot Password</a></div>
+                  </div>
+
+                  <input type="submit" value="Log In" class="button" >
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

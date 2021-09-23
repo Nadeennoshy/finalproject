@@ -1,0 +1,25 @@
+{% extends 'library/layouts/admin.html'%}
+{% load static %}
+{% block part1 %}
+   <link rel="stylesheet" href="{% static 'library/css/style6.css' %}">
+    <form name = "update" action="" method="post" style="margin-top: 5rem;">
+        {% csrf_token %}
+        <fieldset style="width: 40%; height: 70%;">
+            <legend style="font-size: 1.1rem; color: #0F044C; font-weight: 900; text-transform: capitalize;">update {{book.title}}</legend>
+            <div style="width: 80%; margin: auto;">
+                <label>Title</label>
+                <input type = "text" name = "title" value="{{book.title}}" style="background-color: #D8E3E7; outline: none; border: none;">
+                <label>Author Of The Book</label>
+                <input type = "text" name = "author" value="{{book.author}}" style="background-color: #D8E3E7; outline: none; border: none;">
+                <label>Image</label>
+                <input type = "text" name = "image" value="{{book.image}}" style="background-color: #D8E3E7; outline: none; border: none;">
+                <label>Status</label>
+                <input type = "text" name = "status" value="{{book.status}}" style="background-color: #D8E3E7; outline: none; border: none;">
+                <input type = "submit" value = "update" style="width: 10rem; height: 2.5rem; font-size: 1rem; outline: none; border: none; color: #fff; background-color: #141E61; margin-top: 1rem; text-transform: capitalize;">
+            </div>
+           
+            
+        </fieldset>
+    </form>   
+        
+{% endblock %}
